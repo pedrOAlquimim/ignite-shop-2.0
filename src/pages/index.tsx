@@ -1,23 +1,72 @@
 import Image from 'next/image'
-import camiseta1 from '../assets/shirts/1.png'
 import { Handbag } from 'phosphor-react'
+import { HomeContainer, ProductContainer } from '../styles/pages/home'
+import { GetStaticProps } from 'next'
+import { stripe } from '../lib/stripe'
+import Stripe from 'stripe'
+import { useKeenSlider } from 'keen-slider/react'
+import 'keen-slider/keen-slider.min.css'
 
-export default function Home() {
+interface HomeProps {
+  products: {
+    id: string
+    name: string
+    imageUrl: string
+    price: number
+  }[]
+}
+
+export default function Home({ products }: HomeProps) {
+  const [sliderRef] = useKeenSlider({
+    slides: {
+      perView: 2,
+      spacing: 48,
+    }
+  })
+
   return (
-    <div>
-      <div>
-        <Image src={camiseta1} alt='' />
-        <div>
-          <div>
-            <h2>Camisa X</h2>
-            <span>R$ 79,90</span>
-          </div>
+    <HomeContainer ref={sliderRef} className='keen-slider'>
+      {products.map(product => {
+        return (
+          <ProductContainer key={product.id} className='keen-slider__slide'>
+            <Image src={product.imageUrl} alt='' width={520} height={480} />
+            <footer>
+              <div>
+                <strong>{product.name}</strong>
+                <p>{product.price}</p>
+              </div>
 
-          <button>
-            <Handbag size={24} weight='bold' />
-          </button>
-        </div>
-      </div>
-    </div>
+              <button>
+                <Handbag size={32} weight='bold' />
+              </button>
+            </footer>
+         </ProductContainer>
+        )
+      })}
+    </HomeContainer>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const response = await stripe.products.list({
+    expand: ['data.default_price']
+  })
+
+  const products = response.data.map(item => {
+    const price = item.default_price as Stripe.Price
+
+    return {
+      id: item.id,
+      name: item.name,
+      imageUrl: item.images[0],
+      price: price.unit_amount / 100
+    }
+  })
+  
+  return {
+    props: {
+      products,
+    },
+    revalidate: 60 * 60 * 2 // 2 hour
+  }
 }
