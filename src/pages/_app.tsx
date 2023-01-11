@@ -5,6 +5,8 @@ import Image from "next/image";
 import logoImg from '../assets/logo.svg'
 import { globalStyles } from '../styles/global';
 import Link from 'next/link';
+import * as Dialog from '@radix-ui/react-dialog'
+import { CartModal } from '../components/CartModal';
 
 globalStyles()
 
@@ -16,9 +18,15 @@ export default function App({ Component, pageProps }: AppProps) {
           <Image src={logoImg} alt='' />
         </Link>
 
-        <button>
-          <Handbag size={24} weight='bold' />
-        </button>
+        <Dialog.Root>
+          <Dialog.Trigger asChild>
+            <button>
+              <Handbag size={24} weight='bold' />
+            </button>
+          </Dialog.Trigger>
+
+          <CartModal />
+        </Dialog.Root>
       </Header>
 
       <Component {...pageProps} />
