@@ -6,6 +6,7 @@ import { stripe } from '../lib/stripe'
 import Stripe from 'stripe'
 import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
+import Link from 'next/link'
 
 interface HomeProps {
   products: {
@@ -28,19 +29,21 @@ export default function Home({ products }: HomeProps) {
     <HomeContainer ref={sliderRef} className='keen-slider'>
       {products.map(product => {
         return (
-          <ProductContainer key={product.id} className='keen-slider__slide'>
-            <Image src={product.imageUrl} alt='' width={520} height={480} />
-            <footer>
-              <div>
-                <strong>{product.name}</strong>
-                <p>{product.price}</p>
-              </div>
+          <Link href={`/product/${product.id}`} key={product.id}>
+            <ProductContainer className='keen-slider__slide'>
+              <Image src={product.imageUrl} alt='' width={520} height={480} />
+              <footer>
+                <div>
+                  <strong>{product.name}</strong>
+                  <p>{product.price}</p>
+                </div>
 
-              <button>
-                <Handbag size={32} weight='bold' />
-              </button>
-            </footer>
-         </ProductContainer>
+                <button>
+                  <Handbag size={32} weight='bold' />
+                </button>
+              </footer>
+            </ProductContainer>
+          </Link>
         )
       })}
     </HomeContainer>
@@ -59,7 +62,10 @@ export const getStaticProps: GetStaticProps = async () => {
       id: item.id,
       name: item.name,
       imageUrl: item.images[0],
-      price: price.unit_amount / 100
+      price: new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+      }).format(price.unit_amount / 100)
     }
   })
   
