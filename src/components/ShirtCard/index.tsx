@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { ProductContainer } from "./styles";
 
-interface ShirtCardProps {
+export interface ShirtCardProps {
   product: {
     id: string
     name: string
@@ -19,7 +19,6 @@ export function ShirtCard({product}: ShirtCardProps) {
 
   function handleAddItemsToCart() {
     const addNewItemToCart = {...product}
-
     addItemsToCart(addNewItemToCart)
   }
 

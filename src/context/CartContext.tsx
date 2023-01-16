@@ -6,9 +6,10 @@ interface CarrtContextProviderProps {
 
 interface ProductCartProps {
   id: string
-  price: number
-  imageUrl: string
   name: string
+  imageUrl: string
+  price: number
+  description?: string
 }
 
 interface CartContextProps {

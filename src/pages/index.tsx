@@ -1,7 +1,5 @@
 import 'keen-slider/keen-slider.min.css'
-import Image from 'next/image'
 import Stripe from 'stripe'
-import { Handbag } from 'phosphor-react'
 import { GetStaticProps } from 'next'
 import { stripe } from '../lib/stripe'
 import { useKeenSlider } from 'keen-slider/react'

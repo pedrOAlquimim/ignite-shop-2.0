@@ -1,6 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
+import { useContext } from "react";
 import Stripe from "stripe";
+import { CartContext } from "../../context/CartContext";
 import { stripe } from "../../lib/stripe";
 import { ImageContainer, ProductContainer, ProductDetails } from "../../styles/pages/product";
 
@@ -15,6 +17,13 @@ interface ProductProps {
 }
 
 export default function Product({ product }: ProductProps) {
+  const { addItemsToCart } = useContext(CartContext)
+
+  function handleAddItemToCart() {
+    const addNewItemToCart = {...product}
+    addItemsToCart(addNewItemToCart)
+  }
+
   return (
     <ProductContainer>
       <ImageContainer>
@@ -27,7 +36,7 @@ export default function Product({ product }: ProductProps) {
 
         <p>{product.description}</p>
 
-        <button>
+        <button onClick={handleAddItemToCart}>
           Colocar na sacola
         </button>
       </ProductDetails>
