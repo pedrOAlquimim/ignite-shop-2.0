@@ -1,9 +1,13 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "phosphor-react";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 import { ItemCard } from "../ItemCard";
 import { Content, Title, Close, CartModalContainer, Products, CartDetails, Quantity, Total } from "./styles";
 
 export function CartModal() {
+  const {cartItems} = useContext(CartContext)
+
   return (
     <Dialog.Portal>
       <Content>
@@ -15,10 +19,11 @@ export function CartModal() {
 
         <CartModalContainer>
           <Products>
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
+            {cartItems?.map(cartItem => {
+              return (
+                <ItemCard key={cartItem.id} product={cartItem} />
+              )
+            })}
           </Products>
 
           <CartDetails>

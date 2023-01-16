@@ -1,11 +1,5 @@
 import { createContext, ReactNode, useState } from "react";
 
-interface CartContextProps {
-  addItemsToCart: (shirt: ProductCartProps) => void
-  removeItemsFromCart: (id: string) => void
-  orderAlreadyExist: (id: string) => void
-}
-
 interface CarrtContextProviderProps {
   children: ReactNode
 }
@@ -17,9 +11,16 @@ interface ProductCartProps {
   name: string
 }
 
+interface CartContextProps {
+  cartItems: ProductCartProps[]
+  addItemsToCart: (shirt: ProductCartProps) => void
+  removeItemsFromCart: (id: string) => void
+  orderAlreadyExist: (id: string) => void
+}
+
 export const CartContext = createContext({} as CartContextProps)
 
-export function CarrtContextProvider({children}: CarrtContextProviderProps) {
+export function CartContextProvider({children}: CarrtContextProviderProps) {
   const [cartItems, setCartItems] = useState<ProductCartProps[]>([])
 
   function addItemsToCart(shirt: ProductCartProps) {
@@ -30,6 +31,8 @@ export function CarrtContextProvider({children}: CarrtContextProviderProps) {
     const withoutDeletedOne = cartItems.filter(cartItem => {
       return cartItem.id !== id
     })
+
+    setCartItems(withoutDeletedOne)
   }
 
   function orderAlreadyExist(id: string) {
@@ -43,6 +46,7 @@ export function CarrtContextProvider({children}: CarrtContextProviderProps) {
 
   return (
     <CartContext.Provider value={{
+      cartItems,
       addItemsToCart,
       removeItemsFromCart,
       orderAlreadyExist,
