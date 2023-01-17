@@ -17,12 +17,14 @@ interface ProductProps {
 }
 
 export default function Product({ product }: ProductProps) {
-  const { addItemsToCart } = useContext(CartContext)
+  const { addItemsToCart, orderAlreadyExist } = useContext(CartContext)
 
   function handleAddItemToCart() {
     const addNewItemToCart = {...product}
     addItemsToCart(addNewItemToCart)
   }
+
+  const ifOrderAlreadyExists = orderAlreadyExist(product.id)
 
   return (
     <ProductContainer>
@@ -36,8 +38,12 @@ export default function Product({ product }: ProductProps) {
 
         <p>{product.description}</p>
 
-        <button onClick={handleAddItemToCart}>
-          Colocar na sacola
+        <button onClick={handleAddItemToCart} disabled={ifOrderAlreadyExists}>
+          {ifOrderAlreadyExists ?
+            "Produto já está no carrinho"
+            :
+            "Colocar na sacola"
+          }
         </button>
       </ProductDetails>
     </ProductContainer>

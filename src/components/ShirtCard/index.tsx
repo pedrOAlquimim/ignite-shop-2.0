@@ -15,12 +15,14 @@ export interface ShirtCardProps {
 }
 
 export function ShirtCard({product}: ShirtCardProps) {
-  const {addItemsToCart} = useContext(CartContext)
+  const {addItemsToCart, orderAlreadyExist} = useContext(CartContext)
 
   function handleAddItemsToCart() {
     const addNewItemToCart = {...product}
     addItemsToCart(addNewItemToCart)
   }
+
+  const ifOrderAlreadyExists = orderAlreadyExist(product.id)
 
   return (
     <ProductContainer key={product.id} className='keen-slider__slide'>
@@ -33,7 +35,7 @@ export function ShirtCard({product}: ShirtCardProps) {
           <p>{product.price}</p>
         </div>
 
-        <button onClick={handleAddItemsToCart}>
+        <button onClick={handleAddItemsToCart} disabled={ifOrderAlreadyExists}>
           <Handbag size={32} weight='bold' />
         </button>
       </footer>

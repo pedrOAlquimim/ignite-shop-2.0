@@ -16,7 +16,7 @@ interface CartContextProps {
   cartItems: ProductCartProps[]
   addItemsToCart: (shirt: ProductCartProps) => void
   removeItemsFromCart: (id: string) => void
-  orderAlreadyExist: (id: string) => void
+  orderAlreadyExist: (id: string) => boolean
 }
 
 export const CartContext = createContext({} as CartContextProps)
@@ -37,13 +37,10 @@ export function CartContextProvider({children}: CarrtContextProviderProps) {
   }
 
   function orderAlreadyExist(id: string) {
-    const orderAlreadyExist = cartItems.find(cartItem => {
-      return cartItem.id === id
-    })
-
+    const orderAlreadyExist = cartItems.some(cartItem => cartItem.id === id)
+    
     return orderAlreadyExist
   }
-
 
   return (
     <CartContext.Provider value={{
