@@ -61,8 +61,13 @@ export const CartDetails = styled('div', {
     background: '$green500',
     cursor: 'pointer',
 
-    '&:hover': {
+    '&:not(:disabled):hover': {
       background: '$green300',
+    },
+
+    '&:disabled': {
+      opacity: 0.7,
+      cursor: 'not-allowed',
     }
   }
 })

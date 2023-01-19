@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Handbag } from 'phosphor-react';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
+import { priceFormatter } from '../../utils/formatter';
 import { ProductContainer } from "./styles";
 
 export interface ShirtCardProps {
@@ -32,7 +33,7 @@ export function ShirtCard({product}: ShirtCardProps) {
       <footer>
         <div>
           <strong>{product.name}</strong>
-          <p>{product.price}</p>
+          <p>{priceFormatter.format(product.price)}</p>
         </div>
 
         <button onClick={handleAddItemsToCart} disabled={ifOrderAlreadyExists}>

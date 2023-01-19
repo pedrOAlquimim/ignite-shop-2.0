@@ -14,6 +14,7 @@ interface ProductCartProps {
 
 interface CartContextProps {
   cartItems: ProductCartProps[]
+  quantity: number
   addItemsToCart: (shirt: ProductCartProps) => void
   removeItemsFromCart: (id: string) => void
   orderAlreadyExist: (id: string) => boolean
@@ -23,6 +24,8 @@ export const CartContext = createContext({} as CartContextProps)
 
 export function CartContextProvider({children}: CarrtContextProviderProps) {
   const [cartItems, setCartItems] = useState<ProductCartProps[]>([])
+
+  const quantity = cartItems.length
 
   function addItemsToCart(shirt: ProductCartProps) {
     setCartItems(state => [...state, shirt])
@@ -45,6 +48,7 @@ export function CartContextProvider({children}: CarrtContextProviderProps) {
   return (
     <CartContext.Provider value={{
       cartItems,
+      quantity,
       addItemsToCart,
       removeItemsFromCart,
       orderAlreadyExist,

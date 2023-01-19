@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useContext } from "react";
 import camisa1 from '../../assets/shirts/1.png'
 import { CartContext } from "../../context/CartContext";
+import { priceFormatter } from "../../utils/formatter";
 import { ImageContainer, ItemCardContainer, ItemDetails } from "./styles";
 
 interface ItemCardProps {
@@ -30,7 +31,7 @@ export function ItemCard({product}: ItemCardProps) {
       <ItemDetails>
         <div>
           <h2>{product.name}</h2>
-          <strong>{product.price}</strong>
+          <strong>{priceFormatter.format(product.price)}</strong>
         </div>
 
         <button onClick={handleRemoveItemsFromCart}>

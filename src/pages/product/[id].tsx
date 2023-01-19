@@ -75,10 +75,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
         imageUrl: product.images[0],
         name: product.name,
         description: product.description,
-        price: new Intl.NumberFormat('pt-BR', {
-          currency: 'BRL',
-          style: 'currency'
-        }).format(price.unit_amount / 100)
+        price: price.unit_amount / 100
       }
     },
     revalidate: 60 * 60 * 1 // 1 hour
