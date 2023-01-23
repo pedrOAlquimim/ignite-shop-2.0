@@ -12,6 +12,7 @@ interface HomeProps {
     name: string
     imageUrl: string
     price: number
+    defaultPriceId: string
   }[]
 }
 
@@ -46,7 +47,8 @@ export const getStaticProps: GetStaticProps = async () => {
       id: item.id,
       name: item.name,
       imageUrl: item.images[0],
-      price: price.unit_amount / 100
+      price: price.unit_amount / 100,
+      defaultPriceId: price.id
     }
   })
   

@@ -5,6 +5,7 @@ import Stripe from "stripe";
 import { CartContext } from "../../context/CartContext";
 import { stripe } from "../../lib/stripe";
 import { ImageContainer, ProductContainer, ProductDetails } from "../../styles/pages/product";
+import { priceFormatter } from "../../utils/formatter";
 
 interface ProductProps {
   product: {
@@ -13,6 +14,7 @@ interface ProductProps {
     imageUrl: string
     price: number
     description: string
+    defaultPriceId: string
   }
 }
 
@@ -34,7 +36,7 @@ export default function Product({ product }: ProductProps) {
 
       <ProductDetails>
         <h1>{product.name}</h1>
-        <span>{product.price}</span>
+        <span>{priceFormatter.format(product.price)}</span>
 
         <p>{product.description}</p>
 
@@ -75,7 +77,8 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
         imageUrl: product.images[0],
         name: product.name,
         description: product.description,
-        price: price.unit_amount / 100
+        price: price.unit_amount / 100,
+        defaultPriceId: price.id
       }
     },
     revalidate: 60 * 60 * 1 // 1 hour

@@ -12,6 +12,7 @@ export interface ShirtCardProps {
     name: string
     imageUrl: string
     price: number
+    defaultPriceId: string
   }
 }
 

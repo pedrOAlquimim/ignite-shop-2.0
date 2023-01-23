@@ -22,7 +22,7 @@ export function CartModal() {
 
         <CartModalContainer>
           <Products>
-            {cartItems?.map(cartItem => {
+            {cartItems.map(cartItem => {
               return (
                 <ItemCard key={cartItem.id} product={cartItem} />
               )

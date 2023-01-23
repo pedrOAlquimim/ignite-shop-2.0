@@ -10,6 +10,7 @@ interface ProductCartProps {
   imageUrl: string
   price: number
   description?: string
+  defaultPriceId: string
 }
 
 interface CartContextProps {
@@ -24,6 +25,7 @@ export const CartContext = createContext({} as CartContextProps)
 
 export function CartContextProvider({children}: CarrtContextProviderProps) {
   const [cartItems, setCartItems] = useState<ProductCartProps[]>([])
+  console.log(cartItems)
 
   const quantity = cartItems.length
 

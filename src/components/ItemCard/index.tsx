@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { useContext } from "react";
-import camisa1 from '../../assets/shirts/1.png'
 import { CartContext } from "../../context/CartContext";
 import { priceFormatter } from "../../utils/formatter";
 import { ImageContainer, ItemCardContainer, ItemDetails } from "./styles";
@@ -11,6 +10,7 @@ interface ItemCardProps {
     name: string
     imageUrl: string
     price: number
+    defaultPriceId: string
   }
 }
 
