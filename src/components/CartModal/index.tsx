@@ -1,6 +1,7 @@
 import * as Dialog from "@radix-ui/react-dialog";
+import axios from "axios";
 import { X } from "phosphor-react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import { usePrice } from "../../hooks/usePrice";
 import { priceFormatter } from "../../utils/formatter";
@@ -9,7 +10,34 @@ import { Content, Title, Close, CartModalContainer, Products, CartDetails, Quant
 
 export function CartModal() {
   const { cartItems, quantity } = useContext(CartContext)
+  const [ isCreatingCheckoutSession, setIsCreatingCheckoutSession ] = useState(false)
   const price = usePrice()
+
+  async function handleBuyProduct() {
+    try {
+      setIsCreatingCheckoutSession(true)
+
+      const productsToBuy = cartItems.map(item => {
+        return {
+          price: item.defaultPriceId,
+          quantity: 1
+        }
+      })
+
+      const response = await axios.post('/api/checkout', {
+        itemsToBuy: productsToBuy
+      })
+
+      const { checkoutUrl } = response.data
+
+      window.location.href = checkoutUrl
+    } catch {
+      // O certo seria conectar com uma ferramenta de observalidade (Datadog / Sentry / etc...)
+
+      setIsCreatingCheckoutSession(false)
+      alert('Falha ao redirecionar ao checkout')
+    }
+  }
 
   return (
     <Dialog.Portal>
@@ -41,7 +69,7 @@ export function CartModal() {
               </Total>
             </div>
 
-            <button disabled={quantity == 0}>
+            <button onClick={handleBuyProduct} disabled={quantity == 0}>
               Finalizar compra
             </button>
           </CartDetails>

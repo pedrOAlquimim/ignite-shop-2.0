@@ -24,8 +24,7 @@ interface CartContextProps {
 export const CartContext = createContext({} as CartContextProps)
 
 export function CartContextProvider({children}: CarrtContextProviderProps) {
-  const [cartItems, setCartItems] = useState<ProductCartProps[]>([])
-  console.log(cartItems)
+  const [ cartItems, setCartItems ] = useState<ProductCartProps[]>([])
 
   const quantity = cartItems.length
 
