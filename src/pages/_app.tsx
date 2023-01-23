@@ -8,10 +8,15 @@ import { CartModal } from '../components/CartModal';
 import { CartContextProvider } from '../context/CartContext';
 import { globalStyles } from '../styles/global';
 import { Container, Header } from '../styles/pages/app'
+import { useRouter } from 'next/router';
 
 globalStyles()
 
 export default function App({ Component, pageProps }: AppProps) {
+  const { pathname } = useRouter()
+
+  const showCardButton = pathname !== '/success'
+
   return (
     <CartContextProvider>
       <Container>
@@ -20,15 +25,17 @@ export default function App({ Component, pageProps }: AppProps) {
             <Image src={logoImg} alt='' />
           </Link>
 
-          <Dialog.Root>
-            <Dialog.Trigger asChild>
-              <button>
-                <Handbag size={24} weight='bold' />
-              </button>
-            </Dialog.Trigger>
+          {showCardButton && (
+            <Dialog.Root>
+              <Dialog.Trigger asChild>
+                <button>
+                  <Handbag size={24} weight='bold' />
+                </button>
+              </Dialog.Trigger>
 
-            <CartModal />
-          </Dialog.Root>
+              <CartModal />
+            </Dialog.Root>
+          )}
         </Header>
 
         <Component {...pageProps} />

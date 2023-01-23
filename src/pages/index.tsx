@@ -19,7 +19,7 @@ interface HomeProps {
 export default function Home({ products }: HomeProps) {
   const [sliderRef] = useKeenSlider({
     slides: {
-      perView: 2,
+      perView: 1.8,
       spacing: 48,
     }
   })
@@ -28,7 +28,7 @@ export default function Home({ products }: HomeProps) {
     <HomeContainer ref={sliderRef} className='keen-slider'>
       {products.map(product => {
         return (
-         <ShirtCard key={product.id} product={product} />
+          <ShirtCard key={product.id} product={product} />
         )
       })}
     </HomeContainer>
