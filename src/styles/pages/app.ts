@@ -15,15 +15,22 @@ export const Header = styled('header', {
   margin: '0 auto',
 
   display: 'flex',
-  justifyContent: 'space-between',
+  justifyContent: 'center',
   alignItems: 'center',
 
   button: {
+    marginLeft: 'auto',
     lineHeight: 0,
     border: 0,
     borderRadius: 6,
-    cursor: 'pointer',
+
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
     padding: '0.75rem',
+    
+    cursor: 'pointer',
     color: '$gray400',
     backgroundColor: '$gray800',
   }
