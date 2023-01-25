@@ -9,6 +9,7 @@ export const HomeContainer = styled('div', {
   
   '@media (max-width: 1279px)': {
     paddingLeft: '1.875rem',
+    maxWidth: '100%'
   },
   
   '@media (max-width: 768px)': {

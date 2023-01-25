@@ -32,7 +32,7 @@ export default function Home({ products }: HomeProps) {
       '(max-width: 768px)':{
         slides: {
           perView: 1.3,
-          spacing: 48,
+          spacing: 24,
         }
       },
 

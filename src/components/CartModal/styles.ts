@@ -4,17 +4,21 @@ import * as Dialog from "@radix-ui/react-dialog";
 export const Content = styled(Dialog.Content, {
   maxWidth: '30rem',
   width: '100%',
-  height: '100%',
   position: 'fixed',
   right: 0,
   top: 0,
+  bottom: 0,
   padding: '4.5rem 3rem 3rem',
 
   display: 'flex',
   flexDirection: 'column',
 
   background: '$gray800',
-  boxShadow: '-4px 0 30px rgba(0,0,0,0.8)'
+  boxShadow: '-4px 0 30px rgba(0,0,0,0.8)',
+
+  '@media (max-width: 768px)': {
+    maxWidth: '100%',
+  }
 })
 
 export const Title = styled(Dialog.Title, {
@@ -35,37 +39,30 @@ export const Close = styled(Dialog.Close, {
   cursor: 'pointer',
 })
 
-export const CartModalContainer = styled('div', {
-  height: '100%',
-  position: 'relative',
-})
-
 export const Products = styled('div', {
   display: 'flex',
   flexDirection: 'column',
+  flex: 1,
   gap: '1.5rem',
-  marginTop: '2rem'
+  marginTop: '2rem',
+  overflowY: 'auto', 
 })
 
-export const CartDetails = styled('div', {
-  position: 'absolute',
-  width: '100%',
-  bottom: '3rem',
-  right: 0,
-  left: 0,
-
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '3.5rem',
+export const CartModalContainer = styled('div', {
+  display: "flex",
+  flexDirection: "column",
+  marginTop: "auto",
 
   button: {
-    color: 'white',
-    fontWeight: 'bold',
+    width: "100%",
     padding: '1.25rem',
     borderRadius: 8,
     border: 0,
-    background: '$green500',
     cursor: 'pointer',
+    
+    fontWeight: 'bold',
+    color: '$white',
+    background: '$green500',
 
     '&:not(:disabled):hover': {
       background: '$green300',
@@ -76,6 +73,13 @@ export const CartDetails = styled('div', {
       cursor: 'not-allowed',
     }
   }
+})
+
+
+export const CartDetails = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  marginBottom: '3.438rem',
 })
 
 export const Quantity = styled('div', {

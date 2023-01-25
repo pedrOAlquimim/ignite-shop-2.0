@@ -9,6 +9,12 @@ export const ProductContainer = styled('div', {
   margin: '0 auto',
   gap: '4.5rem',
   minHeight: 656,
+
+  '@media (max-width: 1279px)': {
+    flexDirection: 'column',
+    minHeight: '100%',
+    gap: '2rem',
+  }
 })
 
 export const ImageContainer = styled('div', {
@@ -21,6 +27,13 @@ export const ImageContainer = styled('div', {
 
   img: {
     objectFit: 'cover',
+  },
+
+  '@media (max-width: 1279px)': {
+    img: {
+      width: '440px',
+      height: '400px',
+    }
   }
 })
 
@@ -69,5 +82,14 @@ export const ProductDetails = styled('div', {
       opacity: 0.7,
       cursor: 'not-allowed'
     }
-  }
+  },
+
+  '@media (max-width: 1279px)': {
+    position: 'static',
+    
+    button: {
+      position: 'static',
+      margin: '3rem 0'
+    }
+  },
 })

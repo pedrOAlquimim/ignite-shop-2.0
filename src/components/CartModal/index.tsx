@@ -42,23 +42,22 @@ export function CartModal() {
   return (
     <Dialog.Portal>
       <Content>
-        <Title>Sacola de compras</Title>
-
         <Close>
           <X size={24} weight='bold' />
         </Close>
 
-        <CartModalContainer>
-          <Products>
-            {cartItems.map(cartItem => {
-              return (
-                <ItemCard key={cartItem.id} product={cartItem} />
-              )
-            })}
-          </Products>
+        <Title>Sacola de compras</Title>
 
+        <Products>
+          {cartItems.map(cartItem => {
+            return (
+              <ItemCard key={cartItem.id} product={cartItem} />
+            )
+          })}
+        </Products>
+
+        <CartModalContainer>
           <CartDetails>
-            <div>
               <Quantity>
                 <p>Quantidade</p>
                 <span>{quantity} itens</span>
@@ -67,12 +66,11 @@ export function CartModal() {
                 <p>Valor total</p>
                 <span>{priceFormatter.format(price.total)}</span>
               </Total>
-            </div>
-
-            <button onClick={handleBuyProduct} disabled={quantity == 0}>
-              Finalizar compra
-            </button>
           </CartDetails>
+
+          <button onClick={handleBuyProduct} disabled={quantity == 0}>
+            Finalizar compra
+          </button>
         </CartModalContainer>
 
       </Content>
