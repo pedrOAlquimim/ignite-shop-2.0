@@ -78,4 +78,21 @@ export const ProductContainer = styled('div', {
     }
   },
 
+  '@media (max-width: 768px)': {
+    a: {
+      img: {
+        width: '420px',
+        height: '400px',
+      }
+    }
+  },
+
+  '@media (max-width: 480px)': {
+    a: {
+      img: {
+        width: '340px',
+        height: '320px',
+      }
+    }
+  },
 })

@@ -6,4 +6,16 @@ export const HomeContainer = styled('div', {
   maxWidth: 'calc(100vw - ((100vw - 1180px) / 2))',
   marginLeft: 'auto',
   minHeight: 656,
+  
+  '@media (max-width: 1279px)': {
+    paddingLeft: '1.875rem',
+  },
+  
+  '@media (max-width: 768px)': {
+    minHeight: 576,
+  },
+
+  '@media (max-width: 480px)': {
+    minHeight: 496,
+  },
 })

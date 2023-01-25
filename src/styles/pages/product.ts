@@ -3,7 +3,9 @@ import { styled } from "..";
 export const ProductContainer = styled('div', {
   display: 'flex',
   justifyContent: 'center',
-  maxWidth: 1180,
+  maxWidth: 1240,
+  paddingLeft: '1.875rem',
+  paddingRight: '1.875rem',
   margin: '0 auto',
   gap: '4.5rem',
   minHeight: 656,

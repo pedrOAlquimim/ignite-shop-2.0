@@ -2,12 +2,16 @@ import { styled } from "../../styles";
 import * as Dialog from "@radix-ui/react-dialog";
 
 export const Content = styled(Dialog.Content, {
-  width: 480,
-  height: '100vh',
+  maxWidth: '30rem',
+  width: '100%',
+  height: '100%',
   position: 'fixed',
   right: 0,
   top: 0,
   padding: '4.5rem 3rem 3rem',
+
+  display: 'flex',
+  flexDirection: 'column',
 
   background: '$gray800',
   boxShadow: '-4px 0 30px rgba(0,0,0,0.8)'
@@ -47,6 +51,8 @@ export const CartDetails = styled('div', {
   position: 'absolute',
   width: '100%',
   bottom: '3rem',
+  right: 0,
+  left: 0,
 
   display: 'flex',
   flexDirection: 'column',
