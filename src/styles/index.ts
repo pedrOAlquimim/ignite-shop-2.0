@@ -1,4 +1,4 @@
-import { createStitches } from '@stitches/react';
+import { createStitches } from '@stitches/react'
 
 export const {
   styled,
@@ -21,7 +21,7 @@ export const {
       green500: '#00875F',
       green300: '#00B37E',
 
-      white: '#FFF'
+      white: '#FFF',
     },
 
     fontSizes: {
@@ -29,6 +29,6 @@ export const {
       lg: '1.25rem',
       xl: '1.5rem',
       '2xl': '2rem',
-    }
+    },
   },
-});
+})

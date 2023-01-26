@@ -1,8 +1,8 @@
-import Image from "next/image";
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
-import { priceFormatter } from "../../utils/formatter";
-import { ImageContainer, ItemCardContainer, ItemDetails } from "./styles";
+import Image from 'next/image'
+import { useContext } from 'react'
+import { CartContext } from '../../context/CartContext'
+import { priceFormatter } from '../../utils/formatter'
+import { ImageContainer, ItemCardContainer, ItemDetails } from './styles'
 
 interface ItemCardProps {
   product: {
@@ -14,7 +14,7 @@ interface ItemCardProps {
   }
 }
 
-export function ItemCard({product}: ItemCardProps) {
+export function ItemCard({ product }: ItemCardProps) {
   const { removeItemsFromCart } = useContext(CartContext)
 
   function handleRemoveItemsFromCart() {
@@ -25,7 +25,7 @@ export function ItemCard({product}: ItemCardProps) {
   return (
     <ItemCardContainer>
       <ImageContainer>
-        <Image src={product.imageUrl} alt='' width={100} height={100} />
+        <Image src={product.imageUrl} alt="" width={100} height={100} />
       </ImageContainer>
 
       <ItemDetails>
@@ -34,9 +34,7 @@ export function ItemCard({product}: ItemCardProps) {
           <strong>{priceFormatter.format(product.price)}</strong>
         </div>
 
-        <button onClick={handleRemoveItemsFromCart}>
-          Remover
-        </button>
+        <button onClick={handleRemoveItemsFromCart}>Remover</button>
       </ItemDetails>
     </ItemCardContainer>
   )

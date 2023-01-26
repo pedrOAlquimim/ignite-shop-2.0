@@ -1,4 +1,4 @@
-import { styled } from "../../styles";
+import { styled } from '../../styles'
 
 export const ProductContainer = styled('div', {
   background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
@@ -6,7 +6,7 @@ export const ProductContainer = styled('div', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  
+
   position: 'relative',
   overflow: 'hidden',
   borderRadius: 8,
@@ -14,7 +14,7 @@ export const ProductContainer = styled('div', {
 
   a: {
     img: {
-      objectFit: 'cover',  
+      objectFit: 'cover',
     },
   },
 
@@ -46,8 +46,8 @@ export const ProductContainer = styled('div', {
       p: {
         fontSize: '$xl',
         fontWeight: 'bold',
-        color: '$green300'
-      }
+        color: '$green300',
+      },
     },
 
     button: {
@@ -61,21 +61,21 @@ export const ProductContainer = styled('div', {
       transition: 'background 0.2s',
 
       '&:not(:disabled):hover': {
-        backgroundColor: '$green300'
+        backgroundColor: '$green300',
       },
 
       '&:disabled': {
         opacity: 0.7,
-        cursor: 'not-allowed'
-      }
-    }
+        cursor: 'not-allowed',
+      },
+    },
   },
 
   '&:hover': {
     footer: {
       opacity: 1,
-      transform: 'translateY(0%)'
-    }
+      transform: 'translateY(0%)',
+    },
   },
 
   '@media (max-width: 768px)': {
@@ -83,8 +83,8 @@ export const ProductContainer = styled('div', {
       img: {
         width: '420px',
         height: '400px',
-      }
-    }
+      },
+    },
   },
 
   '@media (max-width: 480px)': {
@@ -92,7 +92,7 @@ export const ProductContainer = styled('div', {
       img: {
         width: '340px',
         height: '320px',
-      }
-    }
+      },
+    },
   },
 })

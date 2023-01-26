@@ -4,7 +4,7 @@ import { GetStaticProps } from 'next'
 import { stripe } from '../lib/stripe'
 import { useKeenSlider } from 'keen-slider/react'
 import { ShirtCard } from '../components/ShirtCard'
-import { HomeContainer} from '../styles/pages/home'
+import { HomeContainer } from '../styles/pages/home'
 
 interface HomeProps {
   products: {
@@ -23,28 +23,25 @@ export default function Home({ products }: HomeProps) {
       spacing: 48,
     },
     breakpoints: {
-      '(max-width: 950px)':{
+      '(max-width: 950px)': {
         slides: {
           perView: 1.5,
           spacing: 48,
-        }
+        },
       },
-      '(max-width: 768px)':{
+      '(max-width: 768px)': {
         slides: {
           perView: 1.3,
           spacing: 24,
-        }
+        },
       },
-
-    }
+    },
   })
 
   return (
-    <HomeContainer ref={sliderRef} className='keen-slider'>
-      {products.map(product => {
-        return (
-          <ShirtCard key={product.id} product={product} />
-        )
+    <HomeContainer ref={sliderRef} className="keen-slider">
+      {products.map((product) => {
+        return <ShirtCard key={product.id} product={product} />
       })}
     </HomeContainer>
   )
@@ -52,10 +49,10 @@ export default function Home({ products }: HomeProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const response = await stripe.products.list({
-    expand: ['data.default_price']
+    expand: ['data.default_price'],
   })
 
-  const products = response.data.map(item => {
+  const products = response.data.map((item) => {
     const price = item.default_price as Stripe.Price
 
     return {
@@ -63,14 +60,14 @@ export const getStaticProps: GetStaticProps = async () => {
       name: item.name,
       imageUrl: item.images[0],
       price: price.unit_amount / 100,
-      defaultPriceId: price.id
+      defaultPriceId: price.id,
     }
   })
-  
+
   return {
     props: {
       products,
     },
-    revalidate: 60 * 60 * 2 // 2 hour
+    revalidate: 60 * 60 * 2, // 2 hour
   }
 }

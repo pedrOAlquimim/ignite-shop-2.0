@@ -1,4 +1,4 @@
-import { styled } from "..";
+import { styled } from '..'
 
 export const SuccessContainer = styled('div', {
   display: 'flex',
@@ -21,7 +21,7 @@ export const SuccessContainer = styled('div', {
     '&:hover': {
       color: '$green300',
     },
-  }
+  },
 })
 
 export const RoundedCardsContainer = styled('div', {
@@ -67,5 +67,5 @@ export const Details = styled('div', {
     fontSize: '$xl',
     color: '$gray300',
     lineHeight: '140%',
-  }
+  },
 })

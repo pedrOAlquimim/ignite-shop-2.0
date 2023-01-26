@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useState } from 'react'
 
 interface CarrtContextProviderProps {
   children: ReactNode
@@ -23,17 +23,17 @@ interface CartContextProps {
 
 export const CartContext = createContext({} as CartContextProps)
 
-export function CartContextProvider({children}: CarrtContextProviderProps) {
-  const [ cartItems, setCartItems ] = useState<ProductCartProps[]>([])
+export function CartContextProvider({ children }: CarrtContextProviderProps) {
+  const [cartItems, setCartItems] = useState<ProductCartProps[]>([])
 
   const quantity = cartItems.length
 
   function addItemsToCart(shirt: ProductCartProps) {
-    setCartItems(state => [...state, shirt])
+    setCartItems((state) => [...state, shirt])
   }
 
   function removeItemsFromCart(id: string) {
-    const withoutDeletedOne = cartItems.filter(cartItem => {
+    const withoutDeletedOne = cartItems.filter((cartItem) => {
       return cartItem.id !== id
     })
 
@@ -41,19 +41,21 @@ export function CartContextProvider({children}: CarrtContextProviderProps) {
   }
 
   function orderAlreadyExist(id: string) {
-    const orderAlreadyExist = cartItems.some(cartItem => cartItem.id === id)
-    
+    const orderAlreadyExist = cartItems.some((cartItem) => cartItem.id === id)
+
     return orderAlreadyExist
   }
 
   return (
-    <CartContext.Provider value={{
-      cartItems,
-      quantity,
-      addItemsToCart,
-      removeItemsFromCart,
-      orderAlreadyExist,
-    }}>
+    <CartContext.Provider
+      value={{
+        cartItems,
+        quantity,
+        addItemsToCart,
+        removeItemsFromCart,
+        orderAlreadyExist,
+      }}
+    >
       {children}
     </CartContext.Provider>
   )

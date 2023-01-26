@@ -1,4 +1,4 @@
-export const priceFormatter = Intl.NumberFormat('pt-BR',{
+export const priceFormatter = Intl.NumberFormat('pt-BR', {
   style: 'currency',
-  currency: 'BRL'
+  currency: 'BRL',
 })

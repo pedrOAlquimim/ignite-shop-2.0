@@ -1,5 +1,5 @@
-import { styled } from "../../styles";
-import * as Dialog from "@radix-ui/react-dialog";
+import { styled } from '../../styles'
+import * as Dialog from '@radix-ui/react-dialog'
 
 export const Content = styled(Dialog.Content, {
   maxWidth: '30rem',
@@ -18,12 +18,12 @@ export const Content = styled(Dialog.Content, {
 
   '@media (max-width: 768px)': {
     maxWidth: '100%',
-  }
+  },
 })
 
 export const Title = styled(Dialog.Title, {
   fontSize: '$md',
-  color: '$gray100', 
+  color: '$gray100',
 })
 
 export const Close = styled(Dialog.Close, {
@@ -45,21 +45,21 @@ export const Products = styled('div', {
   flex: 1,
   gap: '1.5rem',
   marginTop: '2rem',
-  overflowY: 'auto', 
+  overflowY: 'auto',
 })
 
 export const CartModalContainer = styled('div', {
-  display: "flex",
-  flexDirection: "column",
-  marginTop: "auto",
+  display: 'flex',
+  flexDirection: 'column',
+  marginTop: 'auto',
 
   button: {
-    width: "100%",
+    width: '100%',
     padding: '1.25rem',
     borderRadius: 8,
     border: 0,
     cursor: 'pointer',
-    
+
     fontWeight: 'bold',
     color: '$white',
     background: '$green500',
@@ -71,10 +71,9 @@ export const CartModalContainer = styled('div', {
     '&:disabled': {
       opacity: 0.7,
       cursor: 'not-allowed',
-    }
-  }
+    },
+  },
 })
-
 
 export const CartDetails = styled('div', {
   display: 'flex',
@@ -91,7 +90,7 @@ export const Quantity = styled('div', {
 
   span: {
     fontSize: '$md',
-  }
+  },
 })
 
 export const Total = styled('div', {
@@ -99,12 +98,12 @@ export const Total = styled('div', {
   justifyContent: 'space-between',
   color: '$gray100',
   fontWeight: 'bold',
-  
+
   p: {
-    fontSize: '$md'
+    fontSize: '$md',
   },
-  
+
   span: {
-    fontSize: '$lg'
-  }
+    fontSize: '$lg',
+  },
 })

@@ -1,4 +1,4 @@
-import { styled } from "../../styles";
+import { styled } from '../../styles'
 
 export const ItemCardContainer = styled('div', {
   display: 'flex',
@@ -17,8 +17,8 @@ export const ImageContainer = styled('div', {
   borderRadius: 8,
 
   img: {
-    objectFit: 'cover'
-  }
+    objectFit: 'cover',
+  },
 })
 
 export const ItemDetails = styled('div', {
@@ -44,7 +44,7 @@ export const ItemDetails = styled('div', {
       fontWeight: 'bold',
       fontSize: '$md',
       lineHeight: '160%',
-    }
+    },
   },
 
   button: {
@@ -56,7 +56,7 @@ export const ItemDetails = styled('div', {
     lineHeight: '160%',
 
     '&:hover': {
-      color: '$green300'
-    }
-  }
+      color: '$green300',
+    },
+  },
 })

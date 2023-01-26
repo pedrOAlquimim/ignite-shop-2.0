@@ -1,4 +1,4 @@
-import { styled } from "..";
+import { styled } from '..'
 
 export const ProductContainer = styled('div', {
   display: 'flex',
@@ -12,9 +12,9 @@ export const ProductContainer = styled('div', {
 
   '@media (max-width: 1279px)': {
     flexDirection: 'column',
-    
+
     gap: '2rem',
-  }
+  },
 })
 
 export const ImageContainer = styled('div', {
@@ -34,15 +34,15 @@ export const ImageContainer = styled('div', {
     img: {
       width: '25rem',
       height: '22.5rem',
-    }
+    },
   },
 
   '@media (max-width: 401px)': {
     img: {
       width: '22.5rem',
       height: '20rem',
-    }
-  }
+    },
+  },
 })
 
 export const ProductDetails = styled('div', {
@@ -83,16 +83,16 @@ export const ProductDetails = styled('div', {
 
     '&:disabled': {
       opacity: 0.7,
-      cursor: 'not-allowed'
-    }
+      cursor: 'not-allowed',
+    },
   },
 
   '@media (max-width: 1279px)': {
     position: 'static',
-    
+
     button: {
       position: 'static',
-      margin: '3rem 0'
-    }
+      margin: '3rem 0',
+    },
   },
 })

@@ -1,4 +1,4 @@
-import { styled } from "../../styles";
+import { styled } from '../../styles'
 
 export const HeaderContainer = styled('header', {
   padding: '2rem 1.875rem',
@@ -21,7 +21,7 @@ export const HeaderContainer = styled('header', {
     alignItems: 'center',
     position: 'relative',
     padding: '0.75rem',
-    
+
     cursor: 'pointer',
     color: '$gray400',
     backgroundColor: '$gray800',
@@ -45,5 +45,5 @@ export const HeaderContainer = styled('header', {
       outline: '3px solid $gray900',
       borderRadius: '999px',
     },
-  }
+  },
 })
