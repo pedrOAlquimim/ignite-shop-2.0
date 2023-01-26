@@ -8,11 +8,11 @@ export const ProductContainer = styled('div', {
   paddingRight: '1.875rem',
   margin: '0 auto',
   gap: '4.5rem',
-  minHeight: 656,
+  height: 656,
 
   '@media (max-width: 1279px)': {
     flexDirection: 'column',
-    minHeight: '100%',
+    
     gap: '2rem',
   }
 })
@@ -24,6 +24,7 @@ export const ImageContainer = styled('div', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  flex: 1,
 
   img: {
     objectFit: 'cover',
@@ -31,8 +32,15 @@ export const ImageContainer = styled('div', {
 
   '@media (max-width: 1279px)': {
     img: {
-      width: '440px',
-      height: '400px',
+      width: '25rem',
+      height: '22.5rem',
+    }
+  },
+
+  '@media (max-width: 401px)': {
+    img: {
+      width: '22.5rem',
+      height: '20rem',
     }
   }
 })
@@ -40,7 +48,6 @@ export const ImageContainer = styled('div', {
 export const ProductDetails = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  position: 'relative',
 
   h1: {
     fontSize: '$2xl',
@@ -60,11 +67,7 @@ export const ProductDetails = styled('div', {
   },
 
   button: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-
+    marginTop: 'auto',
     padding: '1.25rem',
     borderRadius: 8,
     border: 0,

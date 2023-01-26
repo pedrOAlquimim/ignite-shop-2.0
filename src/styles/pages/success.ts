@@ -5,6 +5,7 @@ export const SuccessContainer = styled('div', {
   flexDirection: 'column',
   justifyContent: 'center',
   margin: '4.5rem auto',
+  padding: '0 1.875rem',
 
   a: {
     margin: '4rem auto',
