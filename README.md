@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GitHub Blog
 
-## Getting Started
+## English
 
-First, run the development server:
+### What is the project?
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+4º Challenge of Ignite @Rocketseat. It is an E-Commerce project made with Next to improve my development with Next itself (SSR/SSG), Stripe was also used (Stripe is an infrastructure of payment products for the internet) to make the payment of the order creating a route inside the pages, for styling the project Stitches.Js was used, because integrates better with SSR than Styled Components.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Main technologies
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- React
+- Next
+- Stripe
+- Axios
+- Stitches Js
+- Radix UI (Dialog)
+- Keen Slider
+- Phosphor React
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Português
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### O que é o projeto?
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4º Desafio do Ignite @Rocketseat. É um projeto de um E-Commerce feito com Next para aprimorar o meu desenvolvimento com o proprio Next (SSR/SSG), também foi utilizado o Stripe (o Stripe é uma infraestrutura de produtos pagamentos para a internet) para realizar o pagamento do pedido criando uma rota dentro de pages, para a estilização do projeto foi usado o Stitches.Js, pois ele integra melhor com o SSR do que o Styled Components.
 
-## Learn More
+### Principais technologias
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- React
+- Next
+- Stripe
+- Axios
+- Stitches Js
+- Radix UI (Dialog)
+- Keen Slider
+- Phosphor React
