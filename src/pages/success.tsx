@@ -8,6 +8,7 @@ import {
   RoundedCardsContainer,
   SuccessContainer,
 } from '../styles/pages/success'
+import Head from 'next/head'
 
 interface SuccessProps {
   customerName: string
@@ -21,27 +22,33 @@ export default function Success({
   productImages,
 }: SuccessProps) {
   return (
-    <SuccessContainer>
-      <RoundedCardsContainer>
-        {productImages.map((image, i) => {
-          return (
-            <div key={i}>
-              <Image src={image} width={130} height={132} alt="" />
-            </div>
-          )
-        })}
-      </RoundedCardsContainer>
+    <>
+      <Head>
+        <title>Compra | Ignite Shop 2.0</title>
+      </Head>
 
-      <Details>
-        <h2>Compra efetuada!</h2>
-        <p>
-          Uhuul <strong>{customerName}</strong>, sua compra de {orderQuantity}{' '}
-          camiseta(s) já está a caminho da sua casa.
-        </p>
-      </Details>
+      <SuccessContainer>
+        <RoundedCardsContainer>
+          {productImages.map((image, i) => {
+            return (
+              <div key={i}>
+                <Image src={image} width={130} height={132} alt="" />
+              </div>
+            )
+          })}
+        </RoundedCardsContainer>
 
-      <Link href="/">Voltar ao catálogo</Link>
-    </SuccessContainer>
+        <Details>
+          <h2>Compra efetuada!</h2>
+          <p>
+            Uhuul <strong>{customerName}</strong>, sua compra de {orderQuantity}{' '}
+            camiseta(s) já está a caminho da sua casa.
+          </p>
+        </Details>
+
+        <Link href="/">Voltar ao catálogo</Link>
+      </SuccessContainer>
+    </>
   )
 }
 

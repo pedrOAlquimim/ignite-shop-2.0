@@ -5,6 +5,7 @@ import { stripe } from '../lib/stripe'
 import { useKeenSlider } from 'keen-slider/react'
 import { ShirtCard } from '../components/ShirtCard'
 import { HomeContainer } from '../styles/pages/home'
+import Head from 'next/head'
 
 interface HomeProps {
   products: {
@@ -39,11 +40,17 @@ export default function Home({ products }: HomeProps) {
   })
 
   return (
-    <HomeContainer ref={sliderRef} className="keen-slider">
-      {products.map((product) => {
-        return <ShirtCard key={product.id} product={product} />
-      })}
-    </HomeContainer>
+    <>
+      <Head>
+        <title>Home | Ignite Shop 2.0</title>
+      </Head>
+
+      <HomeContainer ref={sliderRef} className="keen-slider">
+        {products.map((product) => {
+          return <ShirtCard key={product.id} product={product} />
+        })}
+      </HomeContainer>
+    </>
   )
 }
 

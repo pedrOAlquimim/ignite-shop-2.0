@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
+import Head from 'next/head'
 import Image from 'next/image'
 import { useContext } from 'react'
 import Stripe from 'stripe'
@@ -33,24 +34,30 @@ export default function Product({ product }: ProductProps) {
   const ifOrderAlreadyExists = orderAlreadyExist(product.id)
 
   return (
-    <ProductContainer>
-      <ImageContainer>
-        <Image src={product.imageUrl} alt="" width={520} height={480} />
-      </ImageContainer>
+    <>
+      <Head>
+        <title>{product.name} | Ignite Shop 2.0</title>
+      </Head>
 
-      <ProductDetails>
-        <h1>{product.name}</h1>
-        <span>{priceFormatter.format(product.price)}</span>
+      <ProductContainer>
+        <ImageContainer>
+          <Image src={product.imageUrl} alt="" width={520} height={480} />
+        </ImageContainer>
 
-        <p>{product.description}</p>
+        <ProductDetails>
+          <h1>{product.name}</h1>
+          <span>{priceFormatter.format(product.price)}</span>
 
-        <button onClick={handleAddItemToCart} disabled={ifOrderAlreadyExists}>
-          {ifOrderAlreadyExists
-            ? 'Produto já está no carrinho'
-            : 'Colocar na sacola'}
-        </button>
-      </ProductDetails>
-    </ProductContainer>
+          <p>{product.description}</p>
+
+          <button onClick={handleAddItemToCart} disabled={ifOrderAlreadyExists}>
+            {ifOrderAlreadyExists
+              ? 'Produto já está no carrinho'
+              : 'Colocar na sacola'}
+          </button>
+        </ProductDetails>
+      </ProductContainer>
+    </>
   )
 }
 
