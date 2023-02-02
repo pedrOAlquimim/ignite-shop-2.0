@@ -1,4 +1,4 @@
-# GitHub Blog
+# Ignite Shop 2.0
 
 ## English
 
