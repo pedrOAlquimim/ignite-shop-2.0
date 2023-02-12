@@ -17,6 +17,17 @@
 - Keen Slider
 - Phosphor React
 
+### How to use?
+
+After that you create your Stripe account and create yours products, you must creat a .env.local file inside project root and create 3 vars
+
+```.env
+NEXT_URL="http://localhost:3000"
+
+STRIPE_PUBLIC_KEY= Your PK here
+STRIPE_SECRET_KEY= Your SK here
+```
+
 ## Português
 
 ### O que é o projeto?
@@ -33,6 +44,17 @@
 - Radix UI (Dialog)
 - Keen Slider
 - Phosphor React
+
+### Como usar?
+
+Depois de criar sua conta na Stripe e criar os seus produtos, você deve criar na raiz do projeto o arquivo .env.local e criar 3 variáveis nele
+
+```.env
+NEXT_URL="http://localhost:3000"
+
+STRIPE_PUBLIC_KEY= Sua PK aqui
+STRIPE_SECRET_KEY= Sua SK aqui
+```
 
 ### Project Images
 
